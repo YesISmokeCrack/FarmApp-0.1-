@@ -62,6 +62,8 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+FarmApp/farmapp.db*
+FarmApp/farmapp-auth.db*
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt

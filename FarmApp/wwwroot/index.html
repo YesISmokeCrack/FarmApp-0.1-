@@ -40,75 +40,29 @@
             margin-bottom: 20px;
         }
     </style>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/theme.css?v=20261113-2">
+    <link rel="stylesheet" href="/css/auth.css?v=1">
 </head>
-<body>
-    <!-- Навигационная панель (будет на всех страницах) -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <!-- логотип с иконкой трактора -->
-            <a class="navbar-brand" href="/index.html"><i class="fas fa-tractor"></i> FarmApp</a>
-            <!-- меню справа -->
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/pages/animals.html"><i class="fas fa-paw"></i> Животные</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/feeds.html"><i class="fas fa-seedling"></i> Корма</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/products.html"><i class="fas fa-cheese"></i> Продукция</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/sales.html"><i class="fas fa-shopping-cart"></i> Продажи</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Основной контейнер с контентом -->
-    <div class="container">
-        <h1 class="mb-4">Добро пожаловать в систему учёта фермы</h1>
-        <!-- Сетка из 4 карточек -->
-        <div class="row">
-            <div class="col-md-3">
-                <!-- на средних экранах каждая карточка занимает 3 колонки из 12 -->
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-paw fa-3x mb-3 text-primary"></i> <!-- иконка животного, увеличенная в 3 раза -->
-                        <h5 class="card-title">Животные</h5>
-                        <p class="card-text">Учёт поголовья, продуктивность</p>
-                        <a href="/pages/animals.html" class="btn btn-primary">Перейти</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-seedling fa-3x mb-3 text-success"></i>
-                        <h5 class="card-title">Корма</h5>
-                        <p class="card-text">Управление запасами и расходом</p>
-                        <a href="/pages/feeds.html" class="btn btn-success">Перейти</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-cheese fa-3x mb-3 text-warning"></i>
-                        <h5 class="card-title">Продукция</h5>
-                        <p class="card-text">Молоко, мясо, яйца</p>
-                        <a href="/pages/products.html" class="btn btn-warning">Перейти</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-shopping-cart fa-3x mb-3 text-danger"></i>
-                        <h5 class="card-title">Продажи</h5>
-                        <p class="card-text">Оформление заказов</p>
-                        <a href="/pages/sales.html" class="btn btn-danger">Перейти</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body style="padding-top:0">
+    <div class="shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">
+                <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V9l9-6 9 6v11h-6v-6H9v6H3Z"/><path d="M7 10h.01M12 10h.01M17 10h.01"/></svg></span>
+                <span><span class="brand-name">FarmApp</span><span class="brand-caption" style="display:block">Управление фермой</span></span>
+            </a>
+            <div class="nav-label">Рабочее пространство</div>
+            <nav class="nav-list" id="navigation" aria-label="Разделы приложения"></nav>
+            <div class="sidebar-bottom"><div class="db-status"><span class="status-dot"></span>База данных подключена</div><div style="margin-top:7px">Учёт хозяйства в одном месте</div></div>
+        </aside>
+        <main class="main">
+            <header class="topbar"><div><div class="topbar-kicker" id="topbarTitle">Обзор</div><div class="today" id="todayLabel"></div></div><div class="topbar-user"><div class="user-badge" id="userBadge" aria-label="Профиль пользователя">Ф</div><div class="user-identity"><strong id="userLabel">Пользователь</strong><span id="roleLabel">Работник</span></div><button class="button button-plain logout-button" id="logoutButton" type="button">Выйти</button></div></header>
+            <div class="content" id="content" aria-live="polite"></div>
+        </main>
     </div>
-
-    <!-- Bootstrap JS (необходим для работы некоторых компонентов, например, сворачивающегося меню) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="authHost"></div>
+    <dialog id="formDialog" aria-label="Форма записи"></dialog>
+    <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+    <script src="/js/app.js?v=auth1" defer></script>
 </body>
 </html>
